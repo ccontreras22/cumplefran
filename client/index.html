@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cumpleaños 40 — Francisco Manotas</title>
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       ALERTA DE SORPRESA
+  ═══════════════════════════════════════════ -->
+  <div class="surprise-banner" role="alert">
+    <span class="surprise-icon">⚠</span>
+    <p>Esto es una sorpresa — Francisco no debe saber. Por favor no lo compartas con él.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <header class="hero">
+    <div class="hero__inner">
+      <p class="hero__label animate-in" style="--delay:0s">Invitación Sorpresa</p>
+      <h1 class="hero__title animate-in" style="--delay:0.15s">
+        ¡Celebremos<br />los <em>40</em><br />de Fran!
+      </h1>
+      <div class="hero__divider animate-in" style="--delay:0.3s"></div>
+      <div class="hero__details animate-in" style="--delay:0.45s">
+        <span class="hero__date">11 de marzo</span>
+        <span class="hero__sep">·</span>
+        <span class="hero__time">4:30 pm</span>
+      </div>
+      <p class="hero__punctual animate-in" style="--delay:0.55s">Llega puntual, por favor.</p>
+      <p class="hero__dresscode animate-in" style="--delay:0.65s">Dress code: Blanco</p>
+    </div>
+    <div class="hero__scroll-hint" aria-hidden="true">↓</div>
+  </header>
+
+  <!-- ══════════════════════════════════════════
+       CARRUSEL DE FOTOS
+  ═══════════════════════════════════════════ -->
+  <section class="carousel-section" aria-label="Galería">
+    <div class="carousel">
+      <div class="carousel__track" id="carouselTrack">
+        <div class="carousel__slide active">
+          <img src="assets/photo1.jpg" alt="Francisco de niño en su graduación" loading="lazy" />
+        </div>
+        <div class="carousel__slide">
+          <img src="assets/photo2.jpg" alt="Francisco bebé en la playa" loading="lazy" />
+        </div>
+        <div class="carousel__slide">
+          <img src="assets/photo3.jpg" alt="Francisco en familia" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- Controles -->
+      <button class="carousel__btn carousel__btn--prev" id="prevBtn" aria-label="Anterior">&#8592;</button>
+      <button class="carousel__btn carousel__btn--next" id="nextBtn" aria-label="Siguiente">&#8594;</button>
+
+      <!-- Puntos de navegación -->
+      <div class="carousel__dots" id="carouselDots" role="tablist" aria-label="Diapositivas">
+        <button class="carousel__dot active" data-index="0" role="tab" aria-selected="true" aria-label="Foto 1"></button>
+        <button class="carousel__dot" data-index="1" role="tab" aria-selected="false" aria-label="Foto 2"></button>
+        <button class="carousel__dot" data-index="2" role="tab" aria-selected="false" aria-label="Foto 3"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       UBICACIÓN
+  ═══════════════════════════════════════════ -->
+  <section class="location-section">
+    <div class="container">
+      <p class="section-label">Lugar</p>
+      <div class="location-card">
+        <div class="location-card__text">
+          <h2 class="location-card__venue">Hotel Pradomar</h2>
+          <p class="location-card__address">
+            Calle 2 # 22 – 61<br />
+            Puerto Colombia – Atlántico
+          </p>
+        </div>
+        <a
+          href="https://www.google.com/maps/search/Hotel+Pradomar+Calle+2+%2322-61+Puerto+Colombia+Atlantico"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-map"
+          aria-label="Ver mapa en Google Maps"
+        >
+          Ver mapa ↗
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       RSVP
+  ═══════════════════════════════════════════ -->
+  <section class="rsvp-section" id="rsvp">
+    <div class="container container--narrow">
+      <p class="section-label">Confirmación</p>
+      <h2 class="section-title">¿Nos acompañas?</h2>
+      <p class="section-sub">Confirma tu asistencia antes del 8 de marzo.</p>
+
+      <form class="rsvp-form" id="rsvpForm" novalidate>
+        <!-- Honeypot anti-spam (oculto) -->
+        <input type="text" name="honeypot" id="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+        <div class="form-group">
+          <label for="nombre" class="form-label">Nombre completo <span aria-hidden="true">*</span></label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            class="form-input"
+            placeholder="Tu nombre"
+            required
+            maxlength="100"
+            autocomplete="name"
+          />
+          <span class="form-error" id="nombreError" role="alert"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" id="estadoLabel">Asistencia <span aria-hidden="true">*</span></label>
+          <div class="radio-group" role="radiogroup" aria-labelledby="estadoLabel">
+            <label class="radio-option">
+              <input type="radio" name="estado" value="confirmo" required />
+              <span class="radio-custom"></span>
+              <span class="radio-text">Confirmo asistencia</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="estado" value="no_puedo" />
+              <span class="radio-custom"></span>
+              <span class="radio-text">No puedo asistir</span>
+            </label>
+          </div>
+          <span class="form-error" id="estadoError" role="alert"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="observacion" class="form-label">
+            Observación <span class="optional">(opcional)</span>
+          </label>
+          <input
+            type="text"
+            id="observacion"
+            name="observacion"
+            class="form-input"
+            placeholder="Ej: Llego a las 5:15…"
+            maxlength="300"
+          />
+        </div>
+
+        <button type="submit" class="btn-primary" id="submitBtn">
+          <span class="btn-text">Confirmar</span>
+          <span class="btn-loader" aria-hidden="true"></span>
+        </button>
+      </form>
+
+      <!-- Mensaje de éxito -->
+      <div class="rsvp-success" id="rsvpSuccess" aria-live="polite" hidden>
+        <div class="success-icon">✓</div>
+        <h3 class="success-title">¡Gracias por confirmar!</h3>
+        <p class="success-msg">Tu respuesta ha sido registrada. Nos vemos el 11 de marzo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER + ACCESO ADMIN
+  ═══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__text">Hotel Pradomar · Puerto Colombia · 11 de marzo · 4:30 pm</p>
+
+      <!-- Campo de acceso admin — discreto -->
+      <div class="admin-access" id="adminAccess">
+        <label for="adminPwd" class="admin-label">Acceso</label>
+        <div class="admin-input-row">
+          <input
+            type="password"
+            id="adminPwd"
+            class="admin-input"
+            placeholder="••••••"
+            autocomplete="current-password"
+            aria-label="Contraseña de acceso al panel"
+          />
+          <button type="button" class="admin-btn" id="adminLoginBtn" aria-label="Ingresar">→</button>
+        </div>
+        <span class="admin-error" id="adminError" role="alert"></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════
+       PANEL ADMIN (modal)
+  ═══════════════════════════════════════════ -->
+  <div class="modal-overlay" id="adminModal" role="dialog" aria-modal="true" aria-labelledby="adminModalTitle" hidden>
+    <div class="modal">
+      <div class="modal__header">
+        <h2 class="modal__title" id="adminModalTitle">Panel de Confirmaciones</h2>
+        <button class="modal__close" id="modalClose" aria-label="Cerrar panel">✕</button>
+      </div>
+
+      <div class="modal__toolbar">
+        <div class="filter-group" role="group" aria-label="Filtrar por estado">
+          <button class="filter-btn active" data-filter="todos">Todos</button>
+          <button class="filter-btn" data-filter="confirmo">Confirman</button>
+          <button class="filter-btn" data-filter="no_puedo">No pueden</button>
+        </div>
+        <button class="btn-export" id="exportBtn">Descargar Excel ↓</button>
+      </div>
+
+      <div class="modal__stats" id="adminStats"></div>
+
+      <div class="modal__table-wrap">
+        <table class="admin-table" id="adminTable">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Estado</th>
+              <th scope="col">Observación</th>
+              <th scope="col">Fecha</th>
+            </tr>
+          </thead>
+          <tbody id="adminTableBody">
+            <tr>
+              <td colspan="5" class="table-loading">Cargando…</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/carousel.js"></script>
+  <script src="js/rsvp.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
