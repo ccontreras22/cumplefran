@@ -252,8 +252,6 @@ button {
   opacity: 1;
   transform: scale(1);
   pointer-events: auto;
-.carousel__slide img.focus-top {
-  object-position: center 5%;
 
 }
 
